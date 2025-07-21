@@ -306,56 +306,57 @@ def get_augmentation_transforms():
 
 
 
-def get_dataloaders(train_npy_dir, batch_size=32, seed=33, include_spectra=False, 
-                   include_phot=False, random_alert_per_epoch=False, num_workers=24):
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
+# def get_dataloaders(train_npy_dir, batch_size=32, seed=33, include_spectra=False, 
+#                    include_phot=False, random_alert_per_epoch=False, num_workers=24):
+#     random.seed(seed)
+#     np.random.seed(seed)
+#     torch.manual_seed(seed)
     
-    transform = get_augmentation_transforms()
-    full_dataset = AstroDataset(train_npy_dir, transform=None, include_spectra=include_spectra)
+#     transform = get_augmentation_transforms()
+#     full_dataset = AstroDataset(train_npy_dir, transform=None, include_spectra=include_spectra)
     
-    # Create stratified splits
-    labels = [torch.argmax(full_dataset[i]['target']).item() for i in range(len(full_dataset))]
-    sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=seed)
-    train_indices, test_val_indices = next(sss.split(np.zeros(len(labels)), labels))
+#     # Create stratified splits
+#     labels = [torch.argmax(full_dataset[i]['target']).item() for i in range(len(full_dataset))]
+#     sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=seed)
+#     train_indices, test_val_indices = next(sss.split(np.zeros(len(labels)), labels))
     
-    sss = StratifiedShuffleSplit(n_splits=1, test_size=0.5, random_state=seed)
-    val_indices, test_indices = next(sss.split(np.zeros(len(test_val_indices)), 
-                                  [labels[i] for i in test_val_indices]))
+#     sss = StratifiedShuffleSplit(n_splits=1, test_size=0.5, random_state=seed)
+#     val_indices, test_indices = next(sss.split(np.zeros(len(test_val_indices)), 
+#                                   [labels[i] for i in test_val_indices]))
     
-    # Convert relative indices to absolute indices
-    val_indices = [test_val_indices[i] for i in val_indices]
-    test_indices = [test_val_indices[i] for i in test_indices]
+#     # Convert relative indices to absolute indices
+#     val_indices = [test_val_indices[i] for i in val_indices]
+#     test_indices = [test_val_indices[i] for i in test_indices]
     
-    dataset = TransformedDataset(
-        Subset(full_dataset, train_indices),
-        transform=transform,
-        random_alert_per_epoch=random_alert_per_epoch
-    )
-    val_dataset = TransformedDataset(
-        Subset(full_dataset, val_indices),
-        transform=None,
-        random_alert_per_epoch=False
-    )
-    test_dataset = TransformedDataset(
-        Subset(full_dataset, test_indices),
-        transform=None,
-        random_alert_per_epoch=False
-    )
+#     dataset = TransformedDataset(
+#         Subset(full_dataset, train_indices),
+#         transform=transform,
+#         random_alert_per_epoch=random_alert_per_epoch
+#     )
+#     val_dataset = TransformedDataset(
+#         Subset(full_dataset, val_indices),
+#         transform=None,
+#         random_alert_per_epoch=False
+#     )
+#     test_dataset = TransformedDataset(
+#         Subset(full_dataset, test_indices),
+#         transform=None,
+#         random_alert_per_epoch=False
+#     )
     
-    train_loader = DataLoader(
-        dataset, batch_size=batch_size, shuffle=not random_alert_per_epoch,
-        num_workers=24, pin_memory=True, persistent_workers=True
-    )
-    val_loader = DataLoader(
-        val_dataset, batch_size=batch_size, shuffle=False, num_workers=24
-    )
-    test_loader = DataLoader(
-        test_dataset, batch_size=batch_size, shuffle=False, num_workers=24
-    )
+#     train_loader = DataLoader(
+#         dataset, batch_size=batch_size, shuffle=not random_alert_per_epoch,
+#         num_workers=24, pin_memory=True, persistent_workers=True
+#     )
+#     val_loader = DataLoader(
+#         val_dataset, batch_size=batch_size, shuffle=False, num_workers=24
+#     )
+#     test_loader = DataLoader(
+#         test_dataset, batch_size=batch_size, shuffle=False, num_workers=24
+#     )
     
-    return train_loader, val_loader, test_loader, full_dataset.classes
+#     return train_loader, val_loader, test_loader, full_dataset.classes
+
 
 
 class FullAlertDataset(Dataset):
@@ -421,10 +422,10 @@ def get_dataloaders(config):
     np.random.seed(config['seed'])
     torch.manual_seed(config['seed'])
     
-    transform = get_augmentation_transforms()
+    #transform = get_augmentation_transforms()
     # Load both datasets
     print('getting dataset')
-    dataset = AstroDataset( config, transform=transform, frequency=20, embedding=False)
+    dataset = AstroDataset(config, transform=None, frequency=20, embedding=False)
 
     print('got dataset')
 
