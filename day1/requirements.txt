@@ -1,0 +1,6 @@
+torch
+torchvision
+timm
+astropy
+scikit-learn
+matplotlib
