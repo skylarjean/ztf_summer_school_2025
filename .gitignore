@@ -1,11 +1,15 @@
 # Skylar Added Ones
 .virtual_documents/*
+.DS_Store
+#Day 1 Data
 good_examples.zip
 */good_samples/*
-.DS_Store
 **/**/*.pkl
+#Day 3 Data
 */data/*
 */data.tar.xz
+**/Data/*
+**/Data.zip
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
