@@ -4,7 +4,8 @@ good_examples.zip
 */good_samples/*
 .DS_Store
 **/**/*.pkl
-
+*/data/*
+*/data.tar.xz
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
