@@ -12,6 +12,7 @@ good_examples.zip
 **/Data.zip
 #Day 4 Data
 **/SPITZER_I4_12914176_0000_6_E8351909_maic.fits
+**/config.yaml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
