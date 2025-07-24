@@ -1,6 +1,6 @@
 # Skylar Added Ones
 .virtual_documents/*
-.DS_Store
+**/**/.DS_Store
 #Day 1 Data
 good_examples.zip
 */good_samples/*
@@ -10,6 +10,8 @@ good_examples.zip
 */data.tar.xz
 **/Data/*
 **/Data.zip
+#Day 4 Data
+**/SPITZER_I4_12914176_0000_6_E8351909_maic.fits
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
