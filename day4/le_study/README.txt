@@ -1,4 +1,3 @@
-In this tutorial, we will use AI models to detect objects in sky survey images. There are two notebooks, 
 
 - [vgg16.ipynb](https://github.com/xiaolng/ztf_summer_school_2025/blob/main/day4/le_study/vgg16.ipynb)
 We will train vgg16 model as a binary classifier and explore how the model makes predictions by analyzing the feature maps.
