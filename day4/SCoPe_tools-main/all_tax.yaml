@@ -1,0 +1,114 @@
+{name: source, key: source, 
+children: [
+  {name: phenomenological, key: 'phenomenological',
+          children: [
+            {name: non-variable, key: nonvar,
+              children: [
+                {name: bogus, key: bogus,
+                  children: [
+                    {name: extended,key: ext}, 
+                    {name: blend,key: blend}, 
+                    {name: bright star,key: bright}, 
+                    {name: ccd artifact,key: artifact}
+                  ]
+                }
+              ]
+            }, 
+            {name: variable,key: vnv, 
+              children: [
+                {name: periodic,key: pnp, 
+                children: [
+                  {name: sinusoidal,key: sin, 
+                    children: [
+                      {name: ellipsoidal,key: el}
+                    ]
+                  }, 
+                  {name: sawtooth,key: saw}, 
+                  {name: multi periodic,key: mp}, 
+                  {name: long timescale,key: longt},
+                {name: eclipsing,key: e, 
+                  children: [
+                    {name: EA,key: ea}, 
+                    {name: EB,key: eb}, 
+                    {name: EW,key: ew}
+                    ]
+                  }, 
+                {name: wrong period,key: wp,
+                  children: [
+                    {name: half period,key: hp}, 
+                    {name: double period,key: dp}
+                    ]
+                  }
+                  ]
+                }, 
+                {name: irregular,key: i, 
+                  children: [
+                    {name: flaring,key: fla},
+                    {name: dipping,key: dip}
+                  ]
+                }
+              ]
+            }
+          ]
+  }, 
+  {name: ontological,key: ontological, 
+            children: [
+              {name: Accretor,key: accr, 
+                children: [
+                  {name: AGN,key: agn}, 
+                  {name: CV,key: cv}, 
+                  {name: YSO,key: yso}
+                ]
+              }, 
+              {name: Non-accreting binary,key: bis, 
+                children: [
+                  {name: Beta Lyrae,key: blyr},
+                  {name: RS CVn,key: rscvn}, 
+                  {name: W Ursae Maj,key: wuma}, 
+                  {name: HW Vir,key: hwvir}, 
+                  {name: detached MS-MS,key: emsms}, 
+                  {name: Peculiar compact binary,key: peccb,
+                    children: [
+                      {name: NN Ser,key: nnser}
+                      ]
+                  }
+                ]
+              }, 
+              {name: Pulsator,key: puls, 
+                children: [
+                  {name: RR Lyrae,key: rrlyr,
+                    children: [
+                      {name: RRab,key: rrab}, 
+                      {name: RRc,key: rrc}, 
+                      {name: RRd,key: rrd}, 
+                      {name: RRe,key: rre}, 
+                      {name: Blazhko,key: rrblz}
+                    ]
+                  },
+                {name: long period variable,key: lpv, 
+                  children: [
+                    {name: Mira,key: mir}, 
+                    {name: Semiregular,key: srv}, 
+                    {name: OSARG,key: osarg}
+                    ]
+                }, 
+                {name: RV Tau,key: rvtau},
+                {name: Delta Scuti,key: dscu}, 
+                {name: Population II Cepheid,key: ceph2, 
+                  children: [
+                    {name: BL Her,key: blher}, 
+                    {name: W Vir,key: wvir}
+                  ]
+                },
+                {name: Cepheid,key: ceph, 
+                  children: [
+                    {name: Fundamental,key: f}, 
+                    {name: Overtone,key: o}
+                  ]
+                }
+              ]
+            }
+          ]
+  }
+]
+}
